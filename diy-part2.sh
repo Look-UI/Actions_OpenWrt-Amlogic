@@ -30,15 +30,24 @@ sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
 # Modify system hostname（FROM OpenWrt CHANGE TO OpenWrt-N1）
 # sed -i 's/OpenWrt/OpenWrt-N1/g' package/base-files/files/bin/config_generate
 
+## ------------------插件配置-------------------------------##
+
 # 添加主题
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+rm -rf feeds/luci/applications/luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+
 # 取消主题默认设置
 find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+
+## adguardhome
+git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 
 # 修改插件名字
 sed -i 's/"Argon 主题设置"/"主题设置"/g' `grep "Argon 主题设置" -rl ./`
@@ -49,7 +58,6 @@ sed -i 's/"Aria2 配置"/"Aria2"/g' `grep "Aria2 配置" -rl ./`
 
 # Replace the default software source
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
-
 sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba4/files/smb.conf.template
 
 # 修复部分插件自启动脚本丢失可执行权限问题
