@@ -20,10 +20,10 @@ sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-defaul
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # 添加主题
-rm -rf feeds/luci/themes/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-rm -rf feeds/luci/applications/luci-app-argon-config
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+# rm -rf feeds/luci/themes/luci-theme-argon
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+# rm -rf feeds/luci/applications/luci-app-argon-config
+# git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
@@ -53,14 +53,14 @@ sed -i 's/192.168.1.1/192.168.31.31/g' package/base-files/files/bin/config_gener
 sed -i 's/OpenWrt/OpenWrt-N1/g' package/base-files/files/bin/config_generate
 
 # Add luci-app-adguardhome
-git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package-temp/luci-app-adguardhome
-mv -f package-temp/luci-app-adguardhome package/lean/
-rm -rf package-temp
+# git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package-temp/luci-app-adguardhome
+# mv -f package-temp/luci-app-adguardhome package/lean/
+# rm -rf package-temp
 
 # Add luci-app-amlogic
-git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogi
-mv -f package-temp/luci-app-amlogic/luci-app-amlogic package/lean/
-rm -rf package-temp
+# git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogi
+# mv -f package-temp/luci-app-amlogic/luci-app-amlogic package/lean/
+# rm -rf package-temp
 
 # 添加插件aliddns
 rm -rf feeds/packages/lang/golang
@@ -72,10 +72,6 @@ git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/new/ddn
 mv -n package/new/ddnsgo/*ddns-go package/new/
 rm -rf package/new/ddnsgo
 
-# 添加插件Alist
-rm -rf feeds/packages/lang/golang
-svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
-git clone https://github.com/sbwml/luci-app-alist.git package/luci-app-alist
 
 # 替换默认软件源
 sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
