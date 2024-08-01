@@ -86,6 +86,7 @@ cp -f $GITHUB_WORKSPACE/script/011-fix-mbo-modules-build.patch package/network/s
 sed -i 's/"Argon 主题设置"/"主题设置"/g' `grep "Argon 主题设置" -rl ./`
 sed -i 's/"带宽监控"/"带宽"/g' `grep "带宽监控" -rl ./`
 sed -i 's/"TTYD 终端"/"终端"/g' `grep "TTYD 终端" -rl ./`
-sed -i 's/"Alist 文件列表"/"Alist"/g' `grep "Alist 文件列表" -rl ./`
+sed -i 's/"网络存储"/"存储"/g' `grep "网络存储" -rl ./`
 sed -i 's/"Aria2 配置"/"Aria2"/g' `grep "Aria2 配置" -rl ./`
 sed -i 's/"实时流量监测"/"流量"/g' `grep "实时流量监测" -rl ./`
+sed -i 's/"FTP 服务器"/"FTP"/g' `grep "FTP 服务器" -rl ./`
