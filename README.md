@@ -1,6 +1,11 @@
 # Actions-OpenWrt
-利用Actions云编译，整合了Amlogic平台的盒子OpenWrt固件编译与内核打包方法，一键生成可直接使用的固件。
 所有盒子固件均采用同一底包，默认为打包N1盒子的固件，如需打包其他型号盒子参照flippy的打包脚本说明修改.yml流程文件即可。
+
+-项目使用 Github Actions 拉取 Lean 的 Openwrt 源码仓库进行云编译
+-固件默认管理地址：192.168.31.31 默认用户：root 默认密码：password
+-集成 Docker 服务，可在 OpenWrt 内自由部署 Docker 应用
+-集成无线网卡驱动,可通过wifi进行配置后台
+-集成晶晨宝盒，支持在线更新固件及内核
 
 
 ## 感谢
