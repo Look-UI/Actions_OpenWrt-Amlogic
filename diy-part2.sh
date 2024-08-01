@@ -88,3 +88,4 @@ sed -i 's/"带宽监控"/"带宽"/g' `grep "带宽监控" -rl ./`
 sed -i 's/"TTYD 终端"/"终端"/g' `grep "TTYD 终端" -rl ./`
 sed -i 's/"Alist 文件列表"/"Alist"/g' `grep "Alist 文件列表" -rl ./`
 sed -i 's/"Aria2 配置"/"Aria2"/g' `grep "Aria2 配置" -rl ./`
+sed -i 's/"实时流量监测"/"流量"/g' `grep "实时流量监测" -rl ./`
