@@ -175,10 +175,10 @@ jobs:
         sudo du -h --max-depth=1 /workdir |sort -nr | head -10
 
     - name: 打包内核
-      uses: unifreq/openwrt_packit@master
+      uses: ophub/flippy-openwrt-actions@main
       env:
         WHOAMI: deng
-        OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
+        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
         PACKAGE_SOC: s905d
        # KERNEL_AUTO_LATEST: false
        # KERNEL_REPO_URL: https://github.com/quanjindeng/Actions_OpenWrt-Amlogic/tree/main/kernel
